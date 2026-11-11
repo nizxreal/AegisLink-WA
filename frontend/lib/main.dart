@@ -73,20 +73,19 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 40),
               isLoading
                   ? const CircularProgressIndicator()
-                  : ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
-                    ).wrap(
-                      ElevatedButton(
-                        onPressed: _loginWithGoogle,
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.g_mobiledata, size: 30),
-                            SizedBox(width: 10),
-                            Text('Masuk dengan Google', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
+                  : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                      ),
+                      onPressed: _loginWithGoogle,
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.g_mobiledata, size: 30),
+                          SizedBox(width: 10),
+                          Text('Masuk dengan Google', style: TextStyle(fontSize: 16)),
+                        ],
                       ),
                     ),
             ],
@@ -252,7 +251,7 @@ class MainMenuScreen extends StatelessWidget {
               onPressed: () async {
                 final prefs = await SharedPreferences.getInstance();
                 await prefs.clear();
-                if (!mounted) return;
+                if (!context.mounted) return;
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
               },
               icon: const Icon(Icons.logout, color: Colors.red),
