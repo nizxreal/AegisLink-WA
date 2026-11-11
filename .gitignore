@@ -1,0 +1,28 @@
+# Flutter
+*.dart_tool/
+*.pub-cache/
+.build/
+Flutter/DerivedData/
+Flutter/build/
+*.apk
+*.aab
+
+# Backend
+node_modules/
+tokens.db
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+*.tmp
+*.backup
